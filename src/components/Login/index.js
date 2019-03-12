@@ -1,56 +1,66 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './style.css';
+import PropTypes from 'prop-types';
+import { Checkbox, Grid } from 'semantic-ui-react';
 
-const Login = () => (
-  <div className="ui raised very padded center aligned text container segment container-main">
-    <h1 className="ui header">Log in</h1>
-    <form className="ui form" action="#" method="post">
-      <div className="field">
-        <div className="ui left icon input">
-          <i className="mail outline icon" />
-          <input type="email" name="email" placeholder="Email Address" />
-        </div>
+import Input from '../common/Input';
 
-      </div>
-      <br />
-      <div className="field">
-        <div className="ui left icon input">
-          <i className="lock icon" />
-          <input type="password" name="password" placeholder="Password" />
-        </div>
-      </div>
-      <br />
-      <a href="#hash">Forgot password?</a>
-      <br />
-      <br />
-      <button type="button" className="ui large teal button">Login</button>
-      <br />
-      <br />
-      <div className="container">
-        <div className="ui horizontal divider">
-        Or
+const LoginForm = ({ ...props }) => {
+  const { loginInputs, onSubmit, loading, errors } = props;
 
-        </div>
-      </div>
+  return (
+    <div className="ui raised very padded center aligned text container segment container-main animated fadeIn">
+      <h1 className="ui header">Sign In</h1>
       <br />
-      <button type="button" className="ui circular facebook icon button">
-        <i className="facebook icon" />
-      </button>
-      <button type="button" className="ui circular twitter icon button">
-        <i className="twitter icon" />
-      </button>
-      <button type="button" className="ui circular google plus icon button">
-        <i className="google plus icon" />
-      </button>
+      <form
+        className={
+          loading ? 'theme ui form loading' : 'theme ui form theme ui form '
+        }
+        id="login-form"
+        onSubmit={onSubmit}
+      >
+        {loginInputs.map((input) => (
+          <React.Fragment key={input.name}>
+            <Input {...input} errors={errors[input.name]} />
+            <br />
+          </React.Fragment>
+        ))}
+        <Checkbox className="bold fg-ligt-grey" label="Remember me" checked />
+        <br />
+        <br />
+        <button
+          type="submit"
+          className="ui large bg-red-pink rounded block button submit"
+        >
+          Sign In
+        </button>
+        <br />
+      </form>
       <br />
-      <p>
-        Don&apos;t have an account?
-        {' '}
-        <Link to="signup">Sign Up</Link>
-      </p>
-    </form>
-  </div>
-);
+      <Grid columns={2}>
+        <Grid.Row className="fg-red-pink">
+          <Grid.Column>Forgot password</Grid.Column>
+          <Grid.Column>
+            <a className="fg-red-pink" href="/signup">
+              Have an account
+            </a>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
+};
 
-export default Login;
+LoginForm.propTypes = {
+  loginInputs: PropTypes.arrayOf(PropTypes.shape({})),
+  onSubmit: PropTypes.func,
+  errors: PropTypes.shape({}),
+  loading: PropTypes.bool,
+};
+
+LoginForm.defaultProps = {
+  loginInputs: [],
+  onSubmit: () => {},
+  loading: false,
+  errors: {},
+};
+export default LoginForm;

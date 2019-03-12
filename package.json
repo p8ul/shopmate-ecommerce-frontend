@@ -1,25 +1,35 @@
 {
-  "name": "boilerplate",
+  "name": "shopmate",
   "version": "0.1.0",
+  "author": "paul kinuthia (p8ul)",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint-config-airbnb": "17.1.0",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.11",
     "node-sass": "^4.10.0",
+    "prettier": "^1.16.4",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-content-loader": "^4.2.1",
     "react-dom": "^16.6.3",
+    "react-js-pagination": "^3.0.2",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "react-stripe-elements": "^2.0.3",
     "react-test-renderer": "^16.6.3",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.6.0",
     "redux-saga": "^1.0.0-rc.0",
-    "semantic-ui-react": "^0.83.0"
+    "semantic-ui-react": "^0.83.0",
+    "stripe": "^6.28.0",
+    "toastr": "^2.1.4",
+    "validate.js": "^0.12.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,7 +38,9 @@
     "test:watch": "react-scripts test --watch",
     "coveralls": "react-scripts test --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/*.js"
+    "lint": "eslint ./src/*.js",
+    "pretest:client": "yarn lint",
+    "lint:fix": "eslint . --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,8 +53,10 @@
   ],
   "devDependencies": {
     "coveralls": "^3.0.2",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.11.0",
     "react-router-enzyme-context": "^1.2.0",
     "redux-devtools": "^3.4.2",
@@ -56,5 +70,6 @@
       "!src/utils/*",
       "!src/views/Templates/TemplateDefault.js"
     ]
-  }
+  },
+  "homepage": "./"
 }

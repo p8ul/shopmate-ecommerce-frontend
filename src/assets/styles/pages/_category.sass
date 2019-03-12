@@ -1,0 +1,59 @@
+.category
+    .category__column
+        .ui.header
+            @include screen-size-tablet-max
+                font-size: 14px
+            font-family: $montserrat-family
+            font-weight: bold
+            font-size: 24px
+            color: $red-pink
+            text-transform: uppercase
+        .ui.link.list
+            a
+                @include screen-size-tablet-max
+                    font-size: 14px
+                color: $dark-black
+                font-family: $lucida-grande
+                font-size: 24px
+                line-height: 1.5
+                &:hover
+                    color: $red-pink
+
+.department
+    &__overlay        
+        display: flex
+        position: absolute
+        height: 91%
+        top: 0%
+        left: 31%
+        text-align: center
+        align-items: center
+        color: white
+    &__title 
+        @include screen-size-tablet-max
+            font-size: 3em
+        font-size: 4em
+        color: $white
+        font-family: $playfair-family
+
+    &__image        
+        &:after
+            @include screen-size-tablet-max
+                    height: 90%;
+                    top: 5%;
+                    width: 92%;
+                    left: 4%;
+            position: absolute;
+            content: '';
+            width: 94%;
+            height: 100%;
+            top: 0
+            left: 3%
+            pointer-events: none;
+        &.nature:after
+            background: $orange-faded
+        &.regional:after
+            background: $light-blue
+        .ui.image
+            width: 100%;
+            height: 240px;

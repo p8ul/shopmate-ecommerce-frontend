@@ -1,0 +1,34 @@
+.theme.ui.form
+    font-family: $montserrat-family
+    .field.field, input:-webkit-autofill
+        background-color: white !important
+        border-color: $light-grey !important
+        .field.field input:-webkit-autofill
+    .input
+        height: 4em !important;
+        input::placeholder
+            text-align: center
+    .block
+        width: 80%
+        &.ui.button
+            padding: 1.2em 0 1.2em 0 !important;
+    .ui.checkbox label
+        color: $greyish
+        font-family: $montserrat-family
+        font-weight: bold
+
+
+.ui.form .field.field input:-webkit-autofill
+    border-color: $light-grey !important
+    &:focus
+        border-color: $light-grey !important
+
+.ui.text.container 
+    max-width: 30% !important;
+@include screen-size-tablet-max
+    .ui.text.container 
+        max-width: 100% !important;
+.ui.raised
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22) !important;
+    margin-top: 10% !important
+    margin-bottom: 10% !important

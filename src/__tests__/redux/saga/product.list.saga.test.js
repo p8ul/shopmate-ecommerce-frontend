@@ -6,20 +6,16 @@ import * as actions from '../../../redux/actions';
 import { fetchProductsAsync } from '../../../redux/sagas/product/list';
 
 describe('ProductList Saga', () => {
-  const it = sagaHelper(fetchProductsAsync({ }));
+  const it = sagaHelper(fetchProductsAsync({ payload: { query: {} } }));
   it('should  call list products', (result) => {
-    expect(result).toEqual(call(api.products.list, undefined));
+    expect(result).toEqual(call(api.products.list, { query: {} }, {}));
   });
   it('and then yield dispatch fetchProductsSuccess', (result) => {
-    expect(result).toEqual(
-      put(actions.fetchProductsSuccess({ data: {} })),
-    );
+    expect(result).toEqual(put(actions.fetchProductsSuccess({ data: {} })));
     return new Error('Some error');
   });
 
   it('and then yield dispatch fetchProductsFailure', (result) => {
-    expect(result).toEqual(
-      put(actions.fetchProductsFailure({})),
-    );
+    expect(result).toEqual(put(actions.fetchProductsFailure({})));
   });
 });

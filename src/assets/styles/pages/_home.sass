@@ -5,15 +5,22 @@
     background-size: cover;
     height: 70vh;
     .ui.inverted.header
+        @include screen-size-tablet-max
+            font-size: 3em
+            color: $red-pink
         padding-top: 15%
         padding-left: 15%
         font-size: 4em
         font-family: $playfair-family
     p
+        @include screen-size-tablet-max
+            font-size: 1em
         font-size: 2em
         padding-left: 15%
         color: $white
     .button
+        @include screen-size-tablet-max
+            width: 100%;
         background-color: $white
         color: $red-pink
         text-align: center
@@ -27,3 +34,5 @@
     
 .ui.container.content
     width: 90% !important
+    .category, .productList
+        margin-bottom: 43px;

@@ -1,5 +1,96 @@
 .theme_button_color
     background-color: $red-pink !important;
 
-.ui.button.bg-red-pink
-    color: $white
+.button, .ui.button
+    &:hover 
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+.ui.button
+    &.cardish
+        margin-bottom: 23px
+    &.bg-red-pink
+        color: $white
+    &.bg-white
+        background-color: $white
+    &.rounded
+        border-radius: 34px !important
+    &.add-cart
+        font-size: 20px
+    &.whitelist
+        margin-top: 12px
+        .icon
+            color: $red-pink
+
+
+
+.ui.radio.checkbox .box:after, .ui.radio.checkbox label:after 
+    top: -6px;
+    left: -7px;
+    width: 37px;
+    height: 37px;
+    z-index: 23456;
+
+.ui.radio.checkbox .box:before, .ui.radio.checkbox label:before
+    content: '';
+    -webkit-transform: none;
+    transform: none;
+    width: 23px;
+    height: 23px;
+    color: red !important
+    background-color: transparent
+
+.ui.radio.checkbox 
+    &.white
+        label:before 
+            background-color: white
+        input:checked~label:after
+            background-color: white
+    &.red
+        label:before 
+            background-color: red
+        input:checked~label:after
+            background-color: red
+    &.yellow
+        label:before 
+            background-color: yellow
+        input:checked~label:after
+            background-color: yellow
+    &.green
+        label:before 
+            background-color: green
+        input:checked~label:after
+            background-color: green
+    &.indigo
+        label:before 
+            background-color: indigo
+        input:checked~label:after
+            background-color: indigo
+    &.purple
+        label:before 
+            background-color: purple
+        input:checked~label:after
+            background-color: purple !important
+    &.blue
+        label:before 
+            background-color: blue
+        input:checked~label:after
+            background-color: blue
+    &.orange
+        label:before 
+            background-color: orange
+        input:checked~label:after
+            background-color: orange
+    &.black
+        label:before 
+            background-color: black
+        input:checked~label:after
+            background-color: black
+
+.cart-btn
+    margin-top: 2em;
+    padding: 13px;
+    opacity: 1;
+    border-radius: 9%;
+    font-weight: bold
+    cursor: pointer
+   

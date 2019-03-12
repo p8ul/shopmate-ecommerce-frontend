@@ -1,15 +1,36 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Menu from '../../../components/Menu/index';
-import FixedMenu from '../../../components/Menu/FixedMenu';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
+import { Provider } from 'react-redux';
+import Menu from '../../../components/Menu';
+import { store } from '../../../redux/store';
 
 describe('<Menu />', () => {
-  it('renders Menu component without crashing', () => {
-    mount(<Menu />);
+  let wrapper;
+  let props;
+  beforeEach(() => {
+    props = {};
+    wrapper = mount(
+      <Provider store={store}>
+        <Menu {...props} />
+      </Provider>,
+      new ReactRouterEnzymeContext(),
+    );
   });
-});
-
-
-it('renders Fixed Menu component without crashing', () => {
-  mount(<FixedMenu />);
+  it('should toggle sidebar', () => {
+    wrapper.find('.bars').simulate('click');
+    expect(wrapper.find('.visible').length).toEqual(1);
+    wrapper.find('.back').simulate('click');
+  });
+  it('should fix and unfix fixed menu', () => {
+    // shallow(<FixedMenu store={store} />, new ReactRouterEnzymeContext());
+    wrapper
+      .find('Menu')
+      .instance()
+      .onOnScreen();
+    wrapper
+      .find('Menu')
+      .instance()
+      .offScreen();
+  });
 });

@@ -1,53 +1,77 @@
 import React from 'react';
-import { Visibility, Icon, Label } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom';
+import { Visibility } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import MobileMenu from './MobileMenu';
+import FixedMenu from './FixedMenu';
+import SidebarMenu from './SidebarMenu';
+import MenuItems from './MenuItems';
 
-export const onOnScreen = () => {
-  const banner = document.querySelectorAll('.top.inverted');
-  banner[0].classList.remove('fixed');
-};
+class Menu extends React.Component {
+  static propTypes = {
+    history: PropTypes.shape({}),
+    location: PropTypes.shape({}),
+  };
 
-export const offScreen = () => {
-  const banner = document.querySelectorAll('.top.inverted');
-  banner[0].classList.add('fixed');
-};
+  static defaultProps = {
+    history: { goBack: () => {} },
+    location: { pathname: '/login' },
+  };
 
-const Menu = () => (
-  <Visibility
-    continuous
-    onOnScreen={onOnScreen}
-    onOffScreen={offScreen}
-  >
-    <div className="ui large top secondary  normal menu">
-      <div className="ui container navbar">
-        <div className="item logo">
-Hi!
-        &nbsp;
-          <span className="fg-red-pink ui pointing cursor">Signin</span>
-          &nbsp;
-or
-&nbsp;
-          <span className="fg-red-pink ui pointing cursor">Register</span>
-        </div>
-        <a href="#sdff" className="item">&nbsp;&nbsp;</a>
-        <a href="#sdf" className="item">Daily Deals</a>
-        <a href="#sdff" className="item">&nbsp;&nbsp;</a>
-        <a href="#sdf" className="item">Sell</a>
-        <a href="#sdff" className="item">&nbsp;&nbsp;</a>
-        <a href="#sdf" className="item">Help & Contact</a>
-        <div className="right menu">
+  state = {
+    sidebarOpen: false,
+    fixed: false,
+  };
 
-          <div className="item">
-            <Icon color="black" name="shopping bag" size="large">
-              <Label circular floating>22</Label>
-            </Icon>
+  onOnScreen = () => {
+    this.setState({ fixed: false });
+  };
+
+  offScreen = () => {
+    this.setState({ fixed: true });
+  };
+
+  toggleSidebar = (isOpen) => {
+    const sidebarOpen = !isOpen;
+    this.setState({ sidebarOpen });
+  };
+
+  goBack = () => {
+    const {
+      history: { goBack },
+    } = this.props;
+
+    goBack();
+  };
+
+  render() {
+    const { sidebarOpen, fixed } = this.state;
+    const {
+      location: { pathname },
+    } = this.props;
+    return (
+      <React.Fragment>
+        <MobileMenu
+          sidebarOpen={sidebarOpen}
+          toggleSidebar={this.toggleSidebar}
+          goBack={this.goBack}
+          pathname={pathname}
+        />
+        <Visibility
+          continuous
+          onOnScreen={this.onOnScreen}
+          onOffScreen={this.offScreen}
+        >
+          <div className="ui large top secondary  normal menu">
+            <div className="ui container navbar">
+              <MenuItems />
+            </div>
           </div>
-          <div className="item">
-            <span>Your bag: £3.99</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </Visibility>
-);
-
-export default Menu;
+        </Visibility>
+        <FixedMenu fixed={fixed} />
+        <SidebarMenu sidebarOpen={sidebarOpen} />
+      </React.Fragment>
+    );
+  }
+}
+export default withRouter(Menu);

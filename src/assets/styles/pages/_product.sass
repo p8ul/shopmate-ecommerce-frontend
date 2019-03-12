@@ -5,22 +5,33 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1)
     font-family: $montserrat-family    
     font-weight: bold
-    
+    background: $white-two
+    max-height: 354px !important;
+    overflow: hidden
     &:hover
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
+        box-shadow: 0 4px 50px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
     &__details
         text-align: center
     &__price
         padding: 6px
     .ui.image
             min-height: 221px;
+            
+            
+    &__image
+        margin-bottom: 30px;
     &__overlay
+        @include screen-size-tablet-max
+                width: 100%;
+                height: 85%;
+                top: 11%;
+                left: 0%;
         display: flex
         position: absolute;
         height: 93%;
-        width: 92%;
-        top: 30px;
-        left: 4%;
+        width: 90%;
+        top: 26px;
+        left: 5%;
         opacity: 0;
         background-color: $white
         text-align: center
@@ -37,4 +48,41 @@
             button
                 display: block
                 margin-top: 50%
+
+.bg-white-shaded
+    background-color: $white
+
+.single_product
+    font-family: $montserrat-family
+    &__images
+        width: 100%;
+        height: 100%;
+        &__main 
+            width: 100%;
+            height: 100%;
+            .image
+                width: 90%;
+                height: auto;
+    .price
+        color: $red-pink
+        font-size: 25px
+    &__details
+        [type="radio"]:checked + label
+            &:after, &:before
+                color: red !important
+            
+        &__attribute
+            &__title
+                color: $grey
+                font-weight: 700
+                
+        .ui.breadcrumb
+            width: 100%
+            .icon.circle
+                font-size: 6px
+                &:before
+                    margin-bottom: 12px
+            .section
+                color: #a7a7a7
+                font-weight: normal
 

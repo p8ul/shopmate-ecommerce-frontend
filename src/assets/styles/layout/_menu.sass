@@ -1,5 +1,5 @@
 .hidden.menu 
-    display: none;
+    display: none
   
 .banner, .ui.inverted.menu
     background-color:$dark-primary !important
@@ -14,12 +14,10 @@
             background-color: rgba(255, 255, 255, 0.5) !important
             color: $white-two
             &::placeholder
-                color: $white-two
-        i.icon:before
-            color: $white-two !important
+                font-size: 23px
         &:active
             font-weight: 600
-    .item.logo
+    .item.logo a
        font-size: 23px !important
        font-weight: 600
        color: $red-pink
@@ -27,22 +25,22 @@
 .ui.container.navbar
     width: 90% !important
 .top.normal
-    transition: 300ms ease;
+    transition: 300ms ease
 .top.fixed
-    animation: fadeIn 2s;
+    animation: fadeIn 2s
 
 @keyframes fadeIn
-    from{ opacity: 0 }
-    to{ opacity: 1 }
+    from {opacity: 0 }
+    to {opacity: 1 }
 
 
 .shopping.bag
     .floating.label
-        position: absolute;
-        z-index: 100;
-        top: 0em;
-        left: 75%;
-        margin: 0 0 0 -1.5em!important;
+        position: absolute
+        z-index: 100
+        top: 0em
+        left: 75%
+        margin: 0 0 0 -1.5em!important
         color: $red-pink
         background-color: $white-two
     &.black
@@ -51,7 +49,66 @@
             color: $white-two
 
 
+.ui.mobile.mn 
+    @include screen-size-tablet-max
+        display: flex
+    display: none
+    position: fixed
+    background: white
+    top: 0
+    height: 4.1em
+    width: 100%
+    z-index: 12
+    box-shadow: 0 0px 1px rgba(0,0,0,0.12), 0 0px 1px rgba(0,0,0,0.24);
+    flex: none
+    justify-content: space-between;
+    .item
+        margin: .3em
+            
+    .arrow.left.icon
+        color: $red-pink
+        cursor: pointer
+        margin-top: .5em;
+    .right
+        margin-right: 1em !important;    
+    .logo
+        font-size: 1.7em;
+        margin-top: .4em;
+        font-weight: 600
+        color: $red-pink
+
+.bars 
+  width: 80px
+  height: 4em;
+  cursor: pointer
+  &.active 
+      >.top 
+        stroke-dashoffset: -132px
+      >.middle
+          stroke-dashoffset: -71px
+      >.bottom
+          stroke-dashoffset: -132px
+  >.line 
+    fill: none
+    stroke: $red-pink
+    stroke-width: 4
+    stroke-linecap: square
+    transition: stroke-dasharray 400ms,  stroke-dashoffset 400ms
+    &.top 
+        stroke-dasharray: 40 172
+    &.middle 
+        stroke-dasharray: 40 111
+    &.bottom 
+        stroke-dasharray: 40 172
+   
+.visible
+    transition: all 400ms
+
+
+
 @include screen-size-tablet-max
+    .pusher
+        margin-top: 17%
     .ui.top.menu 
         display: none !important
     .secondary.pointing.menu .item,

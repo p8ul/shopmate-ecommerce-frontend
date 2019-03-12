@@ -1,14 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import MenuItems from './MenuItems';
 
-const SidebarMenu = () => (
-  <div className="ui vertical inverted sidebar menu">
-    <a href="link" className="active item">SHOPMATE</a>
-    <a href="link" className="item">Women</a>
-    <a href="link" className="item">Men</a>
-    <a href="link" className="item">Kids</a>
-    <a href="link" className="item">Shoes</a>
-    <a className="item" href="link">Brands</a>
+const SidebarMenu = ({ sidebarOpen }) => (
+  <div
+    className={
+      sidebarOpen
+        ? 'ui vertical  sidebar menu visible'
+        : 'ui vertical sidebar menu '
+    }
+  >
+    <MenuItems />
   </div>
 );
 
+SidebarMenu.propTypes = {
+  sidebarOpen: PropTypes.bool,
+};
+
+SidebarMenu.defaultProps = {
+  sidebarOpen: true,
+};
 export default SidebarMenu;

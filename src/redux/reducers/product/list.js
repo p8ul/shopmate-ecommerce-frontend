@@ -1,4 +1,8 @@
-import { FETCH_PRODUCTS, FETCH_PRODUCTS_FAILURE, FETCH_PRODUCTS_SUCCESS } from '../../../constants';
+import {
+  FETCH_PRODUCTS,
+  FETCH_PRODUCTS_FAILURE,
+  FETCH_PRODUCTS_SUCCESS,
+} from '../../../constants';
 
 export const initialState = {
   loading: false,

@@ -1,0 +1,9 @@
+export const CREATE_ORDER = 'CREATE_ORDER';
+export const CREATE_ORDER_SUCCESS = 'CREATE_ORDER_SUCCESS';
+export const CREATE_ORDER_FAILURE = 'CREATE_ORDER_FAILURE';
+
+export const CHARGE = 'CHARGE';
+export const CHARGE_SUCCESS = 'CHARGE_SUCCESS';
+export const CHARGE_FAILURE = 'CHARGE_FAILURE';
+
+export const ORDER_KEY = 'ORDER_KEY';

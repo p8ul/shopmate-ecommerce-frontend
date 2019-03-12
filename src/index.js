@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import indexRoutes from './routes/index';
-// eslint-disable-next-line
 import store from './redux/store';
 import Template from './components/Templates/TemplateDefault';
 import './assets/styles/main.sass';
@@ -14,8 +13,13 @@ ReactDOM.render(
     <Router>
       <Template>
         <Switch>
-          {indexRoutes.map((route, key) => (
-            <Route exact path={route.path} component={route.component} key={key} />
+          {indexRoutes.map((route) => (
+            <Route
+              exact
+              path={route.path}
+              component={route.component}
+              key={route.path}
+            />
           ))}
         </Switch>
       </Template>

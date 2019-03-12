@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ProductList from '../Product/ProductList';
+import Product from '../Product/ProductList';
 import Intro from '../../components/Intro';
+import Heading from '../../components/Heading/index';
+import CategoryList from '../Category/CategoryList';
 
 export class HomePage extends Component {
-  static propTypes = {
-    login: PropTypes.shape({}).isRequired,
-  }
+  static propTypes = {};
 
-  state ={}
+  state = {};
 
   render() {
     return (
       <React.Fragment>
         <Intro />
-        <ProductList />
+        <Heading />
+        <CategoryList />
+        <Product />
       </React.Fragment>
-
     );
   }
 }
 
-const mapStateToProps = state => ({
-  login: state.login,
-});
+const mapStateToProps = () => ({});
 
-const mapDispatchToProps = {
+const mapDispatchToProps = {};
 
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomePage);

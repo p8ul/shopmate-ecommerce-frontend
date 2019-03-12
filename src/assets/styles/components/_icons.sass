@@ -1,0 +1,47 @@
+.btn.close 
+  position: absolute
+  right: 17px !important;
+  top: 7px !important;
+  width: 32px !important
+  height: 32px !important
+  opacity: 0.3 !important
+  &:hover
+      opacity: 1 !important
+  &:before, &:after
+    position: absolute
+    left: 15px
+    content: ' '
+    height: 33px
+    width: 2px
+    background-color: $dark-black
+    
+  &:before 
+    transform: rotate(45deg)
+  &:after 
+    transform: rotate(-45deg)
+
+.btn.delete 
+  position: relative
+  margin-left: 3%
+  width: 32px !important
+  height: 32px !important
+  opacity: 0.5 !important
+  font-size: 12px
+  &:hover
+      opacity: 1 !important
+  &:before, &:after
+    position: absolute
+    left: -15.7%
+    top: 38.7%
+    content: ' '
+    height: 9px
+    width: 2px
+    background-color: $red-pink
+    
+  &:before 
+    transform: rotate(45deg)
+  &:after 
+    transform: rotate(-45deg)
+
+
+

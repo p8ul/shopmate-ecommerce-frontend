@@ -1,19 +1,29 @@
-[![Coverage Status](https://coveralls.io/repos/github/p8ul/shopmate-ecommerce-frontend/badge.svg?branch=master&cacheBuster=1)](https://coveralls.io/github/p8ul/shopmate-ecommerce-frontend?branch=master&cacheBuster=1)
-[![Build Status](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend.svg?branch=master&cacheBuster=1)](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend)
+[![Coverage Status](https://coveralls.io/repos/github/p8ul/shopmate-ecommerce-frontend/badge.svg?branch=develop&cacheBuster=1)](https://coveralls.io/github/p8ul/shopmate-ecommerce-frontend?branch=develop&cacheBuster=1)
+[![Build Status](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend.svg?branch=develop&cacheBuster=1)](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=shopmate&style=flat)](https://shopmate.herokuapp.com/)
 
 🔥Turing shopmate ecommerce frontend code.
+## Deployment link
+[Check it out](https://shopmate.herokuapp.com/)
+## Root Endpoint
+[Backend API](http://backendapi.turing.com/docs)
 
+## Screenshot
+![Screenshot](/screenshots/screenshot2.gif?raw=true "Screenshot")
+
+![Screenshot](/screenshots/mobile.gif?raw=true "Screenshot")
+
+![Screenshot](/screenshots/screenshot.gif?raw=true "Screenshot")
 ## Feature requirements
-- [ ] Users can view all items when entering the website
-- [ ] Items are displayed properly based on the selected department and category
-- [ ] Users can search items through search box
-- [ ] Support paging if we have too many items
-- [ ] Users can see item details by selecting a specific item
-- [ ] Users can add items to their shopping carts
-- [ ] Users can register/login using website custom forms, or social login libraries
-- [ ] Users can update personal profiles with shipping addresses and other info
-- [ ] Users can checkout with 3rd party payment gateways: Paypal, Stripe…
+- [x] Users can view all items when entering the website
+- [x] Items are displayed properly based on the selected department and category
+- [x] Users can search items through search box
+- [x] Support paging if we have too many items
+- [x] Users can see item details by selecting a specific item
+- [x] Users can add items to their shopping carts
+- [x] Users can register/login using website custom forms, or social login libraries
+- [x] Users can update personal profiles with shipping addresses and other info
+- [x] Users can checkout with 3rd party payment gateways: Paypal, Stripe…
 
 ## Tech Stack
 
@@ -36,6 +46,21 @@ Here's a curated list of packages that you should be at least familiar with befo
 ### Linting
 
 - [X] [ESLint](http://eslint.org/)
+
+### Folder Structure
+
+```
+src
+└─├─ __tests_
+  ├─ components
+  ├─ containers
+  ├─ constants
+  ├─ assets // images & styles
+  ├─ redux // houses actions, reducers & sagas
+  ├─ routes
+  ├─ utils
+```
+#### [CSS architecture](https://sass-guidelin.es/#architecture)
 
 ## Available Scripts
 

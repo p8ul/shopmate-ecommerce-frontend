@@ -1,9 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
+import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import TemplateDefault from '../../../components/Templates/TemplateDefault';
 
 describe('<TemplateDefault />', () => {
   it('should render TemplateDefault without crashing', () => {
-    mount(<TemplateDefault><div>Hello World</div></TemplateDefault>);
+    shallow(
+      <TemplateDefault>
+        <div>Hello World</div>
+      </TemplateDefault>,
+      new ReactRouterEnzymeContext(),
+    );
   });
 });
