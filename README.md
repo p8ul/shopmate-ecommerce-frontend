@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend.svg?branch=develop&cacheBuster=1)](https://travis-ci.org/p8ul/shopmate-ecommerce-frontend)
 [![Heroku](https://heroku-badge.herokuapp.com/?app=shopmate&style=flat)](https://shopmate.herokuapp.com/)
 
-🔥Turing shopmate ecommerce frontend code.
+🔥Shopmate ecommerce frontend code.
 ## Deployment link
 [Check it out](https://shopmate.herokuapp.com/)
 ## Root Endpoint
